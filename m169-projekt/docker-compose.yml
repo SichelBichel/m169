@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web-app:
+    image: lsi152316/m169-app:v2
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    networks:
+      - m169-net
+
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user123
+      MYSQL_PASSWORD: pass123
+    networks:
+      - m169-net
+
+networks:
+  m169-net:
+    driver: bridge
