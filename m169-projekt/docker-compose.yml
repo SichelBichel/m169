@@ -4,7 +4,7 @@ services:
   web-app:
     image: lsi152316/m169-app:v2
     ports:
-      - "80:80"
+      - "8081"
     depends_on:
       - db
     networks:
@@ -22,4 +22,5 @@ services:
 
 networks:
   m169-net:
+
     driver: bridge
